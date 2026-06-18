@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEVENPLUS — 電磁波曝露レポート 2026</title>
+  <meta name="description" content="スマホ・PC・Wi-Fiから毎日浴びる電磁波。データが示す現実と、日米特許のEMC技術。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #1A1A1A;
+      --paper: #F7F4EF;
+      --rule: #D0CCC4;
+      --red: #C0392B;
+      --blue: #1A5276;
+      --green: #1A7A4A;
+      --gray: #666;
+      --light-gray: #EAE6E0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Masthead ── */
+    .masthead {
+      border-bottom: 3px solid var(--ink);
+      padding: 0 16px;
+    }
+    .masthead-top {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--rule);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--gray);
+    }
+    .masthead-main {
+      padding: 16px 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      align-items: center;
+    }
+    .masthead-main .pub-name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      border-right: none;
+      padding-right: 0;
+    }
+    .masthead-main .issue-info {
+      display: none;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: var(--gray);
+      line-height: 1.8;
+    }
+
+    /* ── Hero (ファーストビュー) ── */
+    .hero-fv {
+      display: grid;
+      grid-template-columns: 1fr;
+      border-bottom: 1px solid var(--rule);
+    }
+    .hero-fv-copy {
+      padding: 32px 16px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .hero-fv-copy .kicker {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: var(--red);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero-fv-copy .kicker::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 2px;
+      background: var(--red);
+    }
+    .hero-fv-copy .main-catch {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 600;
+      font-size: clamp(22px, 5.5vw, 40px);
+      line-height: 1.7;
+      letter-spacing: 0.03em;
+      margin-bottom: 20px;
+    }
+    .hero-fv-copy .main-catch em {
+      font-style: normal;
+      color: var(--red);
+    }
+    .hero-fv-copy .sub-catch {
+      font-size: 14px;
+      line-height: 2.0;
+      color: #555;
+      letter-spacing: 0.04em;
+      margin-bottom: 24px;
+      border-left: 3px solid var(--rule);
+      padding-left: 16px;
+    }
+    .hero-fv-copy .data-hook {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      padding-top: 20px;
+      border-top: 1px solid var(--rule);
+    }
+    .hero-fv-copy .data-hook .num {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 40px;
+      font-weight: 600;
+      color: var(--red);
+      line-height: 1;
+    }
+    .hero-fv-copy .data-hook .desc {
+      font-size: 12px;
+      color: var(--gray);
+      line-height: 1.8;
+    }
+    .hero-fv-product {
+      padding: 28px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .hero-fv-product .product-img-wrap {
+      width: 100%;
+      aspect-ratio: 1/1;
+      background: #111;
+      overflow: hidden;
+    }
+    .hero-fv-product .product-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-fv-product .product-detail .label {
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      color: var(--red);
+      margin-bottom: 6px;
+    }
+    .hero-fv-product .product-detail .name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 16px;
+      letter-spacing: 0.15em;
+      margin-bottom: 4px;
+    }
+    .hero-fv-product .product-detail .price {
+      font-size: 13px;
+      color: var(--gray);
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+    }
+    .hero-fv-product .product-detail .cta-btn {
+      display: block;
+      padding: 14px;
+      background: var(--red);
+      color: #fff;
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-decoration: none;
+      text-align: center;
+      transition: background 0.2s;
+    }
+    .hero-fv-product .product-detail .cta-btn:hover { background: var(--ink); }
+
+    /* ── Section label ── */
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      background: var(--ink);
+    }
+    .section-label span {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: #fff;
+    }
+
+    /* ── Report article (旧 hero-article) ── */
+    .report-article {
+      display: grid;
+      grid-template-columns: 1fr;
+      border-bottom: 1px solid var(--rule);
+    }
+    .report-lead {
+      padding: 28px 16px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .report-lead .kicker {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: var(--red);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .report-lead .kicker::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 2px;
+      background: var(--red);
+    }
+    .report-lead h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 600;
+      font-size: clamp(18px, 4vw, 32px);
+      line-height: 1.7;
+      letter-spacing: 0.03em;
+      margin-bottom: 16px;
+    }
+    .report-lead h2 em {
+      font-style: normal;
+      color: var(--red);
+    }
+    .report-lead .deck {
+      font-size: 13px;
+      line-height: 2.1;
+      color: #444;
+      letter-spacing: 0.04em;
+      margin-bottom: 20px;
+      border-left: 3px solid var(--rule);
+      padding-left: 16px;
+    }
+    .report-lead .byline {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--gray);
+      border-top: 1px solid var(--rule);
+      padding-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .report-sidebar {
+      padding: 24px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .emf-visual img {
+      width: 100%;
+      max-width: 240px;
+      display: block;
+      border-radius: 8px;
+      margin: 0 auto;
+    }
+
+    /* ── Key stat ── */
+    .key-stat { margin-bottom: 24px; }
+    .key-stat .stat-val {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 48px;
+      font-weight: 600;
+      line-height: 1;
+      color: var(--red);
+    }
+    .key-stat .stat-unit { font-size: 14px; color: var(--gray); margin-left: 4px; }
+    .key-stat .stat-label {
+      font-size: 12px;
+      line-height: 1.8;
+      color: var(--gray);
+      margin-top: 6px;
+      letter-spacing: 0.05em;
+    }
+    .key-stat .stat-source {
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      color: #aaa;
+      margin-top: 4px;
+    }
+
+    /* ── Callout bar ── */
+    .callout-bar {
+      background: var(--ink);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      border-top: 3px solid var(--red);
+    }
+    .callout-bar-info {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+    }
+    .callout-bar-info .cb-tag {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: #666;
+    }
+    .callout-bar-info .cb-name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 16px;
+      color: #fff;
+      letter-spacing: 0.1em;
+    }
+    .callout-bar-info .cb-price {
+      font-size: 11px;
+      color: #888;
+      letter-spacing: 0.1em;
+    }
+    .callout-bar .cb-btn {
+      display: block;
+      padding: 10px;
+      background: var(--red);
+      color: #fff;
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-decoration: none;
+      text-align: center;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .callout-bar .cb-btn:hover { background: #fff; color: var(--ink); }
+
+    /* ── Data Section ── */
+    .data-section {
+      padding: 36px 16px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .data-section h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 600;
+      font-size: 18px;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+    .data-section .section-deck {
+      font-size: 13px;
+      color: var(--gray);
+      letter-spacing: 0.05em;
+      margin-bottom: 28px;
+      line-height: 2;
+    }
+
+    /* ── Bar chart ── */
+    .chart-wrapper { margin-bottom: 32px; }
+    .chart-title {
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      color: var(--gray);
+      margin-bottom: 16px;
+    }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 90px 1fr 44px;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+    .bar-label { font-size: 10px; letter-spacing: 0.08em; text-align: right; color: var(--ink); }
+    .bar-track { height: 18px; background: var(--light-gray); position: relative; overflow: hidden; }
+    .bar-fill { height: 100%; width: 0; transition: width 1.2s cubic-bezier(.4,0,.2,1); }
+    .bar-fill.red { background: var(--red); }
+    .bar-fill.blue { background: var(--blue); }
+    .bar-fill.green { background: var(--green); }
+    .bar-fill.amber { background: #B7770D; }
+    .bar-val { font-size: 11px; letter-spacing: 0.05em; color: var(--gray); white-space: nowrap; }
+    #data2 .bar-row { grid-template-columns: 40px 1fr 44px; }
+    .chart-note {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: #aaa;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid var(--rule);
+    }
+
+    /* ── Risk section ── */
+    .risk-section {
+      padding: 36px 16px;
+      border-bottom: 1px solid var(--rule);
+      background: #FBF8F4;
+    }
+    .risk-section h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 600;
+      font-size: 18px;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+    .risk-section .section-deck {
+      font-size: 13px;
+      color: var(--gray);
+      letter-spacing: 0.05em;
+      margin-bottom: 28px;
+      line-height: 2;
+    }
+    .risk-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+    }
+    .risk-item {
+      background: var(--paper);
+      padding: 20px 16px;
+    }
+    .risk-item .risk-icon {
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      color: var(--red);
+      margin-bottom: 8px;
+    }
+    .risk-item h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      letter-spacing: 0.05em;
+    }
+    .risk-item p {
+      font-size: 12px;
+      line-height: 2.0;
+      color: #555;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── Child section ── */
+    .child-section {
+      background: #FAF0EE;
+      border: 1px solid #E8C8C4;
+      padding: 28px 16px;
+    }
+    .child-section .alert-tag {
+      display: inline-block;
+      background: var(--red);
+      color: #fff;
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      padding: 4px 12px;
+      margin-bottom: 16px;
+    }
+    .child-section h3 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.7;
+      margin-bottom: 14px;
+      letter-spacing: 0.05em;
+    }
+    .child-section p {
+      font-size: 13px;
+      line-height: 2.1;
+      color: #555;
+    }
+    .child-inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .child-inner .skull-img {
+      background: #fff;
+      border-radius: 4px;
+      padding: 12px;
+      overflow: hidden;
+    }
+    .child-inner .skull-img img {
+      width: 100%;
+      display: block;
+      border-radius: 2px;
+    }
+    .child-section .multiplier {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 64px;
+      font-weight: 600;
+      color: var(--red);
+      line-height: 1;
+      display: block;
+      margin: 12px 0;
+    }
+
+    /* ── Exposure grid ── */
+    .exposure-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+    }
+    .exposure-card {
+      background: var(--paper);
+      padding: 20px 16px;
+    }
+    .exposure-card .device {
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      color: var(--gray);
+      margin-bottom: 8px;
+    }
+    .exposure-card .hours {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .exposure-card .hours.danger { color: var(--red); }
+    .exposure-card .hours.warn { color: #B7770D; }
+    .exposure-card .hours.cont { color: var(--blue); }
+    .exposure-card .desc {
+      font-size: 11px;
+      line-height: 1.8;
+      color: var(--gray);
+    }
+    .exposure-card .meter {
+      margin-top: 14px;
+      height: 4px;
+      background: var(--light-gray);
+    }
+    .exposure-card .meter-fill { height: 100%; width: 0; transition: width 1.2s ease; }
+    @keyframes danger-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(192,57,43,0); border-color: var(--rule); }
+      50%       { box-shadow: 0 0 18px 4px rgba(192,57,43,0.25); border-color: var(--red); }
+    }
+    .exposure-card--danger {
+      border: 1px solid var(--red) !important;
+      animation: danger-pulse 2.4s ease-in-out infinite;
+      position: relative;
+    }
+    .exposure-card--danger::before {
+      content: '⚠ 高リスク';
+      position: absolute;
+      top: 10px;
+      right: 12px;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      color: var(--red);
+      font-weight: 500;
+    }
+    .exposure-card--danger .meter { height: 6px; }
+
+    /* ── Solution ── */
+    .solution-section {
+      display: grid;
+      grid-template-columns: 1fr;
+      border-bottom: 1px solid var(--rule);
+    }
+    .solution-left {
+      padding: 36px 16px;
+      border-right: none;
+      border-bottom: 1px solid var(--rule);
+    }
+    .solution-left .solution-kicker {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: var(--green);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .solution-left .solution-kicker::before {
+      content: '';
+      display: inline-block;
+      width: 16px;
+      height: 2px;
+      background: var(--green);
+    }
+    .solution-left h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 600;
+      font-size: 22px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      letter-spacing: 0.05em;
+    }
+    .solution-left p {
+      font-size: 13px;
+      line-height: 2.2;
+      color: #444;
+      margin-bottom: 24px;
+      letter-spacing: 0.04em;
+    }
+    .spec-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .spec-table tr { border-top: 1px solid var(--rule); }
+    .spec-table td { padding: 10px 0; vertical-align: top; }
+    .spec-table td:first-child {
+      color: var(--gray);
+      letter-spacing: 0.15em;
+      font-size: 10px;
+      width: 80px;
+      padding-right: 12px;
+    }
+    .spec-table td:last-child { letter-spacing: 0.06em; }
+    .solution-right { padding: 36px 16px; }
+    .product-feature {
+      border: 1px solid var(--rule);
+      padding: 24px 16px;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .product-feature .product-icon {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 64px;
+      color: var(--rule);
+      margin-bottom: 16px;
+    }
+    .product-feature .product-name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 16px;
+      letter-spacing: 0.15em;
+      margin-bottom: 6px;
+    }
+    .product-feature .product-price {
+      font-size: 13px;
+      letter-spacing: 0.1em;
+      color: var(--gray);
+      margin-bottom: 20px;
+    }
+    .product-feature .buy-btn {
+      display: block;
+      padding: 14px;
+      background: var(--red);
+      color: #fff;
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .product-feature .buy-btn:hover { background: var(--ink); }
+    .emc-diagram {
+      width: 100%;
+      max-width: 220px;
+      display: block;
+      margin: 0 auto;
+      border: 1px solid var(--rule);
+    }
+
+    /* ── Mini trust ── */
+    .mini-trust {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--rule);
+    }
+    .mini-trust-item {
+      padding: 16px;
+      border-right: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+    }
+    .mini-trust-item:nth-child(2n) { border-right: none; }
+    .mini-trust-item:nth-last-child(-n+2) { border-bottom: none; }
+    .mini-trust-item .t-val {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .mini-trust-item .t-label {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+
+    /* ── Reviews ── */
+    .reviews-section {
+      padding: 36px 16px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .reviews-section h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 14px;
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .review-card { border-top: 2px solid var(--ink); padding-top: 18px; }
+    .review-card .r-stars {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
+      color: #B7770D;
+    }
+    .review-card .r-quote {
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 300;
+      font-size: 13px;
+      line-height: 2.0;
+      margin-bottom: 10px;
+      letter-spacing: 0.03em;
+    }
+    .review-card .r-attribution {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--gray);
+    }
+
+    /* ── Final CTA ── */
+    .final-cta {
+      padding: 36px 16px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      align-items: center;
+      border-top: 3px solid var(--ink);
+    }
+    .final-cta-text h2 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 22px;
+      font-weight: 600;
+      line-height: 1.7;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+    .final-cta-text p {
+      font-size: 13px;
+      line-height: 2.1;
+      color: #555;
+      letter-spacing: 0.04em;
+    }
+    .final-cta-action {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .final-cta-action .price {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 28px;
+      font-weight: 600;
+    }
+    .final-cta-action .price span {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--gray);
+      margin-left: 6px;
+    }
+    .final-cta-action .main-cta {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      background: var(--red);
+      color: #fff;
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-decoration: none;
+      text-align: center;
+      transition: background 0.2s;
+    }
+    .final-cta-action .main-cta:hover { background: var(--ink); }
+    .final-cta-action .guarantees {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--gray);
+      line-height: 2;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 3px solid var(--ink);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      text-align: center;
+    }
+    footer a {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 13px;
+      letter-spacing: 0.25em;
+      text-decoration: none;
+      color: var(--ink);
+    }
+    footer .copy {
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: var(--gray);
+      line-height: 1.8;
+    }
+
+    /* ── Illustration wrappers ── */
+    .illus-wrap {
+      margin: 24px 16px 8px;
+    }
+    .illus-wrap img { width: 100%; display: block; border-radius: 2px; }
+    .illus-wrap .illus-fallback {
+      display: none;
+      background: #111;
+      border: 1px solid #2a2a2a;
+      aspect-ratio: 21/8;
+      align-items: center;
+      justify-content: center;
+      border-radius: 2px;
+    }
+    .illus-wrap .illus-caption {
+      font-size: 9px;
+      color: #555;
+      letter-spacing: 0.12em;
+      margin-top: 6px;
+      text-align: right;
+    }
+
+    /* ── Appear ── */
+    .appear { opacity: 0; transform: translateY(16px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .appear.in { opacity: 1; transform: translateY(0); }
+
+    /* ── Sticky CTA ── */
+    .sticky-cta {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: var(--ink);
+      border-top: 2px solid var(--red);
+      transform: translateY(100%);
+      transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .sticky-cta.visible { transform: translateY(0); }
+    .sticky-cta .s-info {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .sticky-cta .s-name {
+      display: none;
+    }
+    .sticky-cta .s-price {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--paper);
+    }
+    .sticky-cta .s-btn {
+      display: inline-block;
+      padding: 10px 16px;
+      background: var(--red);
+      color: #fff;
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-decoration: none;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .sticky-cta .s-btn:hover { background: #a93226; }
+
+    /* ── Desktop enhancements ── */
+    @media (min-width: 769px) {
+      /* Masthead */
+      .masthead { padding: 0 48px; }
+      .masthead-top { display: flex; }
+      .masthead-main { grid-template-columns: auto 1fr; gap: 32px; padding: 20px 0 16px; }
+      .masthead-main .pub-name { font-size: 28px; border-right: 1px solid var(--rule); padding-right: 32px; }
+      .masthead-main .issue-info { display: block; }
+
+      /* Section label */
+      .section-label { padding: 12px 48px; }
+
+      /* Hero FV */
+      .hero-fv { grid-template-columns: 3fr 2fr; }
+      .hero-fv-copy { padding: 56px 48px; border-bottom: none; border-right: 1px solid var(--rule); }
+      .hero-fv-copy .main-catch { font-size: clamp(28px, 3.5vw, 44px); }
+      .hero-fv-copy .data-hook .num { font-size: 56px; }
+      .hero-fv-product { padding: 48px 32px; justify-content: space-between; }
+      .hero-fv-product .product-img-wrap { aspect-ratio: 3/4; }
+
+      /* Callout bar */
+      .callout-bar { padding: 20px 48px; flex-direction: row; align-items: center; justify-content: space-between; gap: 24px; }
+      .callout-bar .cb-btn { display: inline-block; width: auto; padding: 10px 28px; }
+
+      /* Report article */
+      .report-article { grid-template-columns: 2fr 1fr; }
+      .report-lead { padding: 48px; border-bottom: none; border-right: 1px solid var(--rule); }
+      .report-lead h2 { font-size: clamp(24px, 3vw, 40px); }
+      .report-lead .deck { font-size: 14px; line-height: 2.2; }
+      .report-sidebar { padding: 24px; }
+      .emf-visual img { max-width: 320px; }
+      .key-stat .stat-val { font-size: 56px; }
+
+      /* Data section */
+      .data-section { padding: 56px 48px; }
+      .data-section h2 { font-size: 22px; }
+      .data-section .section-deck { margin-bottom: 36px; }
+      .bar-row { grid-template-columns: 140px 1fr 60px; gap: 16px; }
+      #data2 .bar-row { grid-template-columns: 48px 1fr 56px; gap: 16px; }
+      .bar-track { height: 22px; }
+      .bar-label { font-size: 12px; }
+      .bar-val { font-size: 12px; }
+
+      /* Risk section */
+      .risk-section { padding: 56px 48px; }
+      .risk-section h2 { font-size: 22px; }
+      .risk-grid { grid-template-columns: repeat(2, 1fr); }
+      .risk-item { padding: 28px 32px; }
+
+      /* Child section */
+      .child-section { padding: 40px 48px; }
+      .child-section h3 { font-size: 24px; }
+      .child-inner { grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 0; }
+      .child-section .multiplier { font-size: 80px; }
+
+      /* Exposure grid */
+      .exposure-grid { grid-template-columns: repeat(2, 1fr); }
+      .exposure-card { padding: 28px 32px; }
+      .exposure-card .hours { font-size: 40px; }
+
+      /* Solution */
+      .solution-section { grid-template-columns: 1fr 1fr; }
+      .solution-left { padding: 56px 48px; border-right: 1px solid var(--rule); border-bottom: none; }
+      .solution-left h2 { font-size: 28px; }
+      .solution-right { padding: 56px 48px; }
+      .product-feature { padding: 40px; }
+      .spec-table td:first-child { width: 100px; }
+
+      /* Reviews */
+      .reviews-section { padding: 56px 48px; }
+      .reviews-section h2 { font-size: 20px; }
+      .reviews-grid { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+
+      /* Final CTA */
+      .final-cta { grid-template-columns: 1fr 1fr; padding: 56px 48px; gap: 48px; }
+      .final-cta-text h2 { font-size: 28px; }
+      .final-cta-action .main-cta { width: auto; padding: 16px 48px; text-align: left; }
+
+      /* Footer */
+      footer { padding: 16px 48px; flex-direction: row; gap: 0; text-align: left; justify-content: space-between; align-items: center; }
+
+      /* Illustrations */
+      .illus-wrap { margin: 48px 48px 8px; }
+
+      /* Sticky CTA */
+      .sticky-cta { padding: 14px 48px; }
+      .sticky-cta .s-info { gap: 16px; }
+      .sticky-cta .s-name { display: block; font-family: 'Noto Serif JP', serif; font-size: 12px; letter-spacing: 0.2em; color: #aaa; }
+      .sticky-cta .s-price { font-size: 18px; }
+      .sticky-cta .s-btn { padding: 12px 32px; font-size: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="masthead-top">
+      <span>電磁波・健康・テクノロジー</span>
+      <span>2026年6月5日 発行</span>
+      <span>SEVENPLUS SPECIAL REPORT</span>
+    </div>
+    <div class="masthead-main">
+      <div class="pub-name">SEVENPLUS</div>
+      <div class="issue-info">
+        電磁波曝露レポート 2026<br>
+        日本人の電磁波曝露実態と、EMC技術による対策
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero ファーストビュー: キャッチ + 商品 -->
+  <section class="hero-fv appear">
+    <div class="hero-fv-copy">
+      <p class="kicker">緊急特集 — 電磁波と現代生活</p>
+      <h1 class="main-catch">
+        現代人は眠っている間も、<em>電磁波の海</em>の中にいる。見えないリスクへの対策は、今日から始められる。
+      </h1>
+      <p class="sub-catch">
+        スマートフォン・ノートPC・Wi-Fiルーター・5G基地局——現代の生活インフラが放つ電磁波は、私たちの日常に深く浸透している。その対策を、ジュエリーとして身に纏う選択肢がある。
+      </p>
+      <div class="data-hook">
+        <span class="num">2,920<span style="font-size:16px;font-weight:300;color:var(--gray)">時間</span></span>
+        <span class="desc">日本人が年間さらされる推定電磁波曝露時間</span>
+      </div>
+    </div>
+    <div class="hero-fv-product">
+      <div class="product-img-wrap">
+        <img src="assets/luna-single.jpg" alt="Luna Single — SEVENPLUS 電磁波対策ジュエリー">
+      </div>
+      <div class="product-detail">
+        <p class="label">— 人気 No.1 商品</p>
+        <p class="name">Luna Single（ルナ・シングル）</p>
+        <p class="price">¥19,800（税込）Silver / Gold / Pink Gold / Black</p>
+        <a href="https://sevenplus.jp/en/collections/featured-collection/products/luna-single" class="cta-btn">今すぐ購入 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product callout bar -->
+  <div class="callout-bar appear">
+    <div class="callout-bar-info">
+      <span class="cb-tag">対策グッズ</span>
+      <span class="cb-name">SEVENPLUS — 電磁波対策ジュエリー</span>
+      <span class="cb-price">¥19,800〜</span>
+    </div>
+    <a href="https://sevenplus.jp/collections/all" class="cb-btn">コレクションを見る →</a>
+  </div>
+
+  <!-- Section label -->
+  <div class="section-label">
+    <span>SPECIAL REPORT</span>
+    <span>—</span>
+    <span>電磁波曝露データ</span>
+  </div>
+
+  <!-- Report article: 2,920時間の根拠 -->
+  <section class="report-article appear">
+    <div class="report-lead">
+      <p class="kicker">調査報告 — 電磁波と現代生活</p>
+      <h2>日本人は年間<em>2,920時間</em>、電磁波環境の中で過ごしている。</h2>
+      <p class="deck">スマートフォン・ノートPC・Wi-Fiルーター・5G基地局——現代の生活インフラが放つ電磁波は、私たちの日常に深く浸透している。</p>
+      <p class="deck" style="margin-top:12px">子供の脳は大人の3倍の電磁波を吸収するという研究報告がある中、多くの人が有効な対策を取っていないのが現状だ。</p>
+      <div class="byline">
+        <span>出典: 電磁波環境研究所 / WHO資料 参考</span>
+        <span>SEVENPLUS 調査報告</span>
+        <span>2026年6月</span>
+      </div>
+    </div>
+    <div class="report-sidebar">
+      <div>
+        <div class="key-stat">
+          <div>
+            <span class="stat-val">8<span class="stat-unit">h</span></span>
+          </div>
+          <p class="stat-label">スマートフォンへの1日あたり平均接触時間</p>
+          <p class="stat-source">出典: 各種国内調査の推計値</p>
+        </div>
+        <div class="emf-visual">
+          <img src="assets/illus-phone-emf.jpg" alt="スマートフォンから放射される電磁波" onerror="this.style.display='none'">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section label -->
+  <div class="section-label">
+    <span>DATA ANALYSIS</span>
+    <span>—</span>
+    <span>電磁波曝露データ分析</span>
+  </div>
+
+  <!-- Data charts -->
+  <section class="data-section appear" id="data">
+    <h2>電磁波発生源別・曝露時間分析</h2>
+    <p class="section-deck">主要な電磁波発生源ごとの1日あたり平均曝露時間。スマートフォンの使用時間は年々増加傾向にある。</p>
+    <div class="chart-wrapper">
+      <p class="chart-title">図1 — デバイス別 平均接触時間（時間/日）</p>
+      <div class="bar-row">
+        <span class="bar-label">スマートフォン</span>
+        <div class="bar-track"><div class="bar-fill red" data-w="85%"></div></div>
+        <span class="bar-val" style="color:var(--red)">8.0h</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">Wi-Fiルーター</span>
+        <div class="bar-track"><div class="bar-fill red" data-w="100%"></div></div>
+        <span class="bar-val" style="color:var(--red)">24.0h</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">ノートPC</span>
+        <div class="bar-track"><div class="bar-fill amber" data-w="60%"></div></div>
+        <span class="bar-val">5.5h</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">スマートTV</span>
+        <div class="bar-track"><div class="bar-fill green" data-w="35%"></div></div>
+        <span class="bar-val">3.0h</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">電子レンジ</span>
+        <div class="bar-track"><div class="bar-fill green" data-w="5%"></div></div>
+        <span class="bar-val">0.3h</span>
+      </div>
+      <p class="chart-note">※ Wi-Fiルーターは家庭内常時稼働を想定。数値は各種調査の推計値に基づく。</p>
+    </div>
+  </section>
+
+  <!-- Illustration B-2 -->
+  <div class="illus-wrap appear">
+    <img src="assets/illus-bedroom.jpg" alt="電磁波に包まれた寝室" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="illus-fallback">
+      <span style="color:#444;letter-spacing:.2em;font-size:10px">ILLUSTRATION — 寝室の電磁波</span>
+    </div>
+    <p class="illus-caption">illustration: SEVENPLUS editorial</p>
+  </div>
+
+  <section class="data-section appear" style="border-top:none" id="data2">
+    <div class="chart-wrapper">
+      <p class="chart-title">図2 — 年代別 スマートフォン使用時間（時間/日）</p>
+      <div class="bar-row">
+        <span class="bar-label">10代</span>
+        <div class="bar-track"><div class="bar-fill red" data-w="95%"></div></div>
+        <span class="bar-val">9.2h</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">20代</span>
+        <div class="bar-track"><div class="bar-fill red" data-w="88%"></div></div>
+        <span class="bar-val">8.5h</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">30代</span>
+        <div class="bar-track"><div class="bar-fill amber" data-w="80%"></div></div>
+        <span class="bar-val">7.8h</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">40代</span>
+        <div class="bar-track"><div class="bar-fill amber" data-w="72%"></div></div>
+        <span class="bar-val">7.0h</span>
+      </div>
+      <div class="bar-row">
+        <span class="bar-label">50代</span>
+        <div class="bar-track"><div class="bar-fill green" data-w="55%"></div></div>
+        <span class="bar-val">5.2h</span>
+      </div>
+      <p class="chart-note">※ 各種国内調査の推計値。在宅ワーク普及により全年代で増加傾向。</p>
+    </div>
+  </section>
+
+  <!-- Illustration B-3 -->
+  <div class="illus-wrap appear">
+    <img src="assets/illus-child-phone.jpg" alt="スマホを耳に当てる子供" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div class="illus-fallback">
+      <span style="color:#444;letter-spacing:.2em;font-size:10px">ILLUSTRATION — 子供とスマートフォン</span>
+    </div>
+    <p class="illus-caption">illustration: SEVENPLUS editorial</p>
+  </div>
+
+  <!-- Section label -->
+  <div class="section-label">
+    <span>HEALTH RISK</span>
+    <span>—</span>
+    <span>電磁波が体に与える影響</span>
+  </div>
+
+  <!-- Health risks section (新規追加) -->
+  <section class="risk-section appear">
+    <h2>電磁波曝露が引き起こすとされる健康リスク</h2>
+    <p class="section-deck">WHOをはじめ各国の研究機関が指摘する、長時間の電磁波曝露による主な影響。「気のせい」では済まない、体への負荷がある。</p>
+    <div class="risk-grid">
+      <div class="risk-item">
+        <p class="risk-icon">⚠ SLEEP</p>
+        <h3>睡眠障害・不眠</h3>
+        <p>メラトニン分泌への影響が指摘されており、枕元のスマートフォンや寝室のWi-Fiルーターが睡眠の質を低下させるとされる。眠っている間も、体は電磁波を受け続けている。</p>
+      </div>
+      <div class="risk-item">
+        <p class="risk-icon">⚠ BRAIN</p>
+        <h3>頭痛・集中力低下</h3>
+        <p>電磁波過敏症（EHS: Electromagnetic Hypersensitivity）の代表的症状。スウェーデンでは国民の約3%がEHSを自覚するとの調査報告があり、WHOも問題として認識している。</p>
+      </div>
+      <div class="risk-item">
+        <p class="risk-icon">⚠ NERVE</p>
+        <h3>自律神経への影響</h3>
+        <p>長時間のデバイス使用による慢性的な疲労感・倦怠感・不安感は、電磁波による自律神経の乱れと関連するとの見解もある。現代人の「なんとなく不調」の一因とも。</p>
+      </div>
+      <div class="risk-item">
+        <p class="risk-icon">⚠ CHILD</p>
+        <h3>子供への特別なリスク</h3>
+        <p>発達途上の脳・骨格は電磁波の影響を受けやすい。タブレット学習・ゲーム端末の低年齢化により、子供の曝露時間は急増。対策なしに浴び続けることへの懸念が高まっている。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Child risk -->
+  <div class="child-section appear">
+    <span class="alert-tag">重要指摘</span>
+    <h3>子供の頭蓋骨は薄い。<br>電磁波は、より深く届く。</h3>
+    <p>子供の頭蓋骨は大人より薄く、脳への電磁波浸透率が高い。学校でのタブレット学習・ゲーム端末・スマートフォン——対策なしに浴び続けることへの懸念が高まっている。</p>
+    <div class="child-inner">
+      <div>
+        <span class="multiplier">3×</span>
+        <p style="font-size:12px;color:#555;line-height:1.9">子供の脳が吸収する電磁波量は大人の<strong>3倍</strong>に上るとされる（WHO参考資料）</p>
+      </div>
+      <div class="skull-img">
+        <img src="assets/illus-skull-cross.jpg" alt="大人と子供の頭蓋骨断面比較 — 電磁波浸透深度">
+      </div>
+    </div>
+  </div>
+
+  <!-- Exposure by device -->
+  <section class="data-section appear" style="padding-top:36px">
+    <h2>主要発生源の曝露特性</h2>
+    <p class="section-deck">デバイス種別ごとの特性と、接触リスクのポイント。</p>
+    <div class="exposure-grid">
+      <div class="exposure-card exposure-card--danger">
+        <p class="device">スマートフォン</p>
+        <p class="hours danger">8h<span style="font-size:14px;font-weight:300;color:#666"> / 日</span></p>
+        <p class="desc">通話中は頭部に密着。SAR値（比吸収率）は機種によって異なる。ポケット内での使用も継続的な曝露源となる。</p>
+        <div class="meter"><div class="meter-fill" style="background:var(--red)" data-w="85%"></div></div>
+      </div>
+      <div class="exposure-card exposure-card--danger">
+        <p class="device">Wi-Fiルーター</p>
+        <p class="hours cont" style="color:var(--red)">24h<span style="font-size:14px;font-weight:300;color:#666"> / 日</span></p>
+        <p class="desc">家庭内で常時放射。距離が近いほど電磁波強度は増す。寝室への設置は特に注意が必要とされる。</p>
+        <div class="meter"><div class="meter-fill" style="background:var(--red)" data-w="100%"></div></div>
+      </div>
+      <div class="exposure-card">
+        <p class="device">ノートPC</p>
+        <p class="hours warn">5.5h<span style="font-size:14px;font-weight:300;color:#666"> / 日</span></p>
+        <p class="desc">在宅ワーク普及により使用時間が増加。膝上での使用は生殖器官への近接曝露リスクが指摘される。</p>
+        <div class="meter"><div class="meter-fill" style="background:#B7770D" data-w="60%"></div></div>
+      </div>
+      <div class="exposure-card">
+        <p class="device">5G基地局（屋外）</p>
+        <p class="hours warn">増加中</p>
+        <p class="desc">都市部を中心に急速に整備が進む。高周波帯域の特性上、強度は従来の4Gより高い場合があり、街中での継続的な曝露が課題となっている。</p>
+        <div class="meter"><div class="meter-fill" style="background:#B7770D" data-w="70%"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section label -->
+  <div class="section-label">
+    <span>SOLUTION</span>
+    <span>—</span>
+    <span>SEVENPLUS EMC テクノロジー</span>
+  </div>
+
+  <!-- Solution -->
+  <section class="solution-section appear">
+    <div class="solution-left">
+      <p class="solution-kicker">対策技術</p>
+      <h2>日米特許取得のEMCシートが、電磁波を変換する。</h2>
+      <p>SEVENPLUSのペンダント内部に封入された特殊EMCシートは、有害とされる電磁波を受け取り、人体に有益な波動へと変換します。</p>
+      <p style="margin-top:12px">効果は恒久的で、使い続けるほど価値が増す設計です。</p>
+      <table class="spec-table">
+        <tr>
+          <td>技術</td>
+          <td>EMCシート（日米特許取得済み）</td>
+        </tr>
+        <tr>
+          <td>機能部位</td>
+          <td>ペンダント / コイン部分</td>
+        </tr>
+        <tr>
+          <td>効果期限</td>
+          <td>恒久的（ペンダント本体が損傷しない限り）</td>
+        </tr>
+        <tr>
+          <td>素材</td>
+          <td>真鍮＋ロジウムコーティング（一部）/ サージカルステンレス316L</td>
+        </tr>
+        <tr>
+          <td>価格</td>
+          <td>¥19,800〜</td>
+        </tr>
+      </table>
+    </div>
+    <div class="solution-right">
+      <div class="product-feature">
+        <div class="product-icon" style="background:none;padding:0;border:none;">
+          <img src="assets/product-luna-single.png" alt="Luna Single — SEVENPLUS" class="emc-diagram" style="border-radius:2px;">
+        </div>
+        <p style="font-size:9px;letter-spacing:.3em;color:var(--red);margin-bottom:6px">— 人気 No.1 商品</p>
+        <p class="product-name">Luna Single（ルナ・シングル）</p>
+        <p class="product-price">¥19,800（税込）</p>
+        <p style="font-size:11px;color:#aaa;letter-spacing:.12em;margin-bottom:6px">Silver / Gold / Pink Gold / Black</p>
+        <p style="font-size:11px;color:#aaa;letter-spacing:.1em;margin-bottom:20px">サージカルステンレス316L &nbsp;|&nbsp; 15mm径 &nbsp;|&nbsp; メロウウェーブテクノロジー搭載</p>
+        <a href="https://sevenplus.jp/en/collections/featured-collection/products/luna-single" class="buy-btn">Luna Single を購入する →</a>
+      </div>
+      <div class="mini-trust">
+        <div class="mini-trust-item">
+          <p class="t-val">90.6</p>
+          <p class="t-label">満足度スコア</p>
+        </div>
+        <div class="mini-trust-item">
+          <p class="t-val">151</p>
+          <p class="t-label">レビュー件数</p>
+        </div>
+        <div class="mini-trust-item">
+          <p class="t-val">日米</p>
+          <p class="t-label">特許取得済み</p>
+        </div>
+        <div class="mini-trust-item">
+          <p class="t-val">809</p>
+          <p class="t-label">累計購入者数</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="reviews-section appear">
+    <h2>購入者の声 — 809件のレビューより</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <p class="r-stars">★★★★★</p>
+        <p class="r-quote">「子供に着けさせてから、電磁波への不安が少し和らぎました。デザインも可愛く、子供も喜んで着けています。」</p>
+        <p class="r-attribution">K.N. — 38歳、2児の母</p>
+      </div>
+      <div class="review-card">
+        <p class="r-stars">★★★★★</p>
+        <p class="r-quote">「在宅ワークでPC前に長時間いるので購入。着けていると安心感が違います。デザインも職場で違和感なし。」</p>
+        <p class="r-attribution">T.M. — 41歳、IT系</p>
+      </div>
+      <div class="review-card">
+        <p class="r-stars">★★★★★</p>
+        <p class="r-quote">「日米特許が決め手でした。信頼できる根拠があるものを選びたかった。リピート購入しています。」</p>
+        <p class="r-attribution">A.S. — 52歳</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="final-cta appear">
+    <div class="final-cta-text">
+      <h2>データが示す現実に、今日から対策を。</h2>
+      <p>日米特許取得のEMCシールドを、ジュエリーとして毎日纏う。</p>
+      <p style="margin-top:10px">大切なご家族とともに、見えない守りを。</p>
+    </div>
+    <div class="final-cta-action">
+      <div class="price">¥19,800<span>〜 送料無料</span></div>
+      <a href="https://sevenplus.jp/collections/all" class="main-cta">コレクションを見る →</a>
+      <p class="guarantees">
+        日米特許取得済み<br>
+        顧客満足度 92.6% / 809件のレビュー
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <a href="https://sevenplus.jp">SEVENPLUS</a>
+    <span class="copy">© 2026 SEVENPLUS. All rights reserved. 本レポートは情報提供を目的としており、医療的助言ではありません。</span>
+    <a href="https://sevenplus.jp/collections/all">SHOP →</a>
+  </footer>
+
+  <script>
+    // Appear on scroll
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.appear').forEach(el => io.observe(el));
+
+    // Bar chart animation
+    const barObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('[data-w]').forEach(el => { el.style.width = el.dataset.w; });
+          barObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.chart-wrapper, .exposure-card').forEach(el => barObs.observe(el));
+  </script>
+</body>
+</html>
