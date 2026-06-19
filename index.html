@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SEVENPLUS — 電磁波曝露レポート 2026</title>
   <meta name="description" content="スマホ・PC・Wi-Fiから毎日浴びる電磁波。データが示す現実と、日米特許のEMC技術。">
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/sevenplus-logo.png">
+
+  <!-- OGP -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://emf.sevenplus.jp">
+  <meta property="og:site_name" content="SEVENPLUS">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:title" content="SEVENPLUS — 電磁波曝露レポート 2026">
+  <meta property="og:description" content="スマホ・PC・Wi-Fiから毎日浴びる電磁波。データが示す現実と、日米特許のEMC技術。">
+  <meta property="og:image" content="https://emf.sevenplus.jp/assets/sevenplus-logo.png">
+  <meta property="og:image:width" content="2000">
+  <meta property="og:image:height" content="800">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SEVENPLUS — 電磁波曝露レポート 2026">
+  <meta name="twitter:description" content="スマホ・PC・Wi-Fiから毎日浴びる電磁波。データが示す現実と、日米特許のEMC技術。">
+  <meta name="twitter:image" content="https://emf.sevenplus.jp/assets/sevenplus-logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
@@ -875,6 +895,21 @@
     }
     .sticky-cta .s-btn:hover { background: #a93226; }
 
+    /* ── Japanese line-break control ── */
+    body {
+      overflow-x: hidden;
+      overflow-wrap: break-word;
+    }
+    h1, h2, h3 {
+      line-break: strict;        /* 行頭・行末禁則処理 */
+      word-break: auto-phrase;   /* 文節単位の折り返し (Chrome 119+, Safari 17.4+) */
+      overflow-wrap: break-word;
+      text-wrap: balance;        /* 均等折り返し (Chrome 114+, Safari 17.5+) */
+    }
+    p {
+      line-break: strict;
+    }
+
     /* ── Desktop enhancements ── */
     @media (min-width: 769px) {
       /* Masthead */
@@ -965,6 +1000,42 @@
       .sticky-cta .s-name { display: block; font-family: 'Noto Serif JP', serif; font-size: 12px; letter-spacing: 0.2em; color: #aaa; }
       .sticky-cta .s-price { font-size: 18px; }
       .sticky-cta .s-btn { padding: 12px 32px; font-size: 10px; }
+
+    }
+
+    /* ── Hero 商品画像オーバーレイ (キャッチコピー) ── */
+    .hero-fv-product .product-img-wrap { position: relative; }
+
+    /* モバイルのみ: 商品画像を先頭に */
+    @media (max-width: 768px) {
+      .hero-fv-product { order: -1; }
+    }
+    .hero-img-catch {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 40px 20px 20px;
+      background: linear-gradient(transparent, rgba(10,10,10,0.78));
+      pointer-events: none;
+    }
+    .hero-img-catch .hic-label {
+      font-size: 9px;
+      letter-spacing: 0.35em;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 8px;
+    }
+    .hero-img-catch .hic-main {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.75;
+      letter-spacing: 0.05em;
+    }
+    .hero-img-catch .hic-main em {
+      font-style: normal;
+      color: #E8A0A0;
     }
   </style>
 </head>
@@ -1004,12 +1075,16 @@
     <div class="hero-fv-product">
       <div class="product-img-wrap">
         <img src="assets/luna-single.jpg" alt="Luna Single — SEVENPLUS 電磁波対策ジュエリー">
+        <div class="hero-img-catch">
+          <p class="hic-label">— SEVENPLUS EMC テクノロジー</p>
+          <p class="hic-main">見えない守りを、身に纏う。<br><em>日米特許取得のEMC技術。</em></p>
+        </div>
       </div>
       <div class="product-detail">
         <p class="label">— 人気 No.1 商品</p>
         <p class="name">Luna Single（ルナ・シングル）</p>
         <p class="price">¥19,800（税込）Silver / Gold / Pink Gold / Black</p>
-        <a href="https://sevenplus.jp/en/collections/featured-collection/products/luna-single" class="cta-btn">今すぐ購入 →</a>
+        <a href="https://sevenplus.jp/collections/featured-collection/products/luna-single" class="cta-btn">今すぐ購入 →</a>
       </div>
     </div>
   </section>
@@ -1039,7 +1114,7 @@
       <p class="deck">スマートフォン・ノートPC・Wi-Fiルーター・5G基地局——現代の生活インフラが放つ電磁波は、私たちの日常に深く浸透している。</p>
       <p class="deck" style="margin-top:12px">子供の脳は大人の3倍の電磁波を吸収するという研究報告がある中、多くの人が有効な対策を取っていないのが現状だ。</p>
       <div class="byline">
-        <span>出典: 電磁波環境研究所 / WHO資料 参考</span>
+        <span>出典: <a href="https://www.who.int/news-room/fact-sheets/detail/electromagnetic-fields-and-public-health-mobile-phones" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">WHO EMF資料</a> / 各種国内調査の推計値</span>
         <span>SEVENPLUS 調査報告</span>
         <span>2026年6月</span>
       </div>
@@ -1282,7 +1357,7 @@
         <p class="product-price">¥19,800（税込）</p>
         <p style="font-size:11px;color:#aaa;letter-spacing:.12em;margin-bottom:6px">Silver / Gold / Pink Gold / Black</p>
         <p style="font-size:11px;color:#aaa;letter-spacing:.1em;margin-bottom:20px">サージカルステンレス316L &nbsp;|&nbsp; 15mm径 &nbsp;|&nbsp; メロウウェーブテクノロジー搭載</p>
-        <a href="https://sevenplus.jp/en/collections/featured-collection/products/luna-single" class="buy-btn">Luna Single を購入する →</a>
+        <a href="https://sevenplus.jp/collections/featured-collection/products/luna-single" class="buy-btn">Luna Single を購入する →</a>
       </div>
       <div class="mini-trust">
         <div class="mini-trust-item">
@@ -1307,7 +1382,7 @@
 
   <!-- Reviews -->
   <section class="reviews-section appear">
-    <h2>購入者の声 — 809件のレビューより</h2>
+    <h2>購入者の声 — 810件のレビューより</h2>
     <div class="reviews-grid">
       <div class="review-card">
         <p class="r-stars">★★★★★</p>
@@ -1339,7 +1414,7 @@
       <a href="https://sevenplus.jp/collections/all" class="main-cta">コレクションを見る →</a>
       <p class="guarantees">
         日米特許取得済み<br>
-        顧客満足度 92.6% / 809件のレビュー
+        顧客満足度 92.6% / 810件のレビュー
       </p>
     </div>
   </section>
@@ -1350,6 +1425,15 @@
     <span class="copy">© 2026 SEVENPLUS. All rights reserved. 本レポートは情報提供を目的としており、医療的助言ではありません。</span>
     <a href="https://sevenplus.jp/collections/all">SHOP →</a>
   </footer>
+
+  <!-- Sticky CTA -->
+  <div class="sticky-cta" id="sticky-cta">
+    <div class="s-info">
+      <span class="s-name">Luna Single</span>
+      <span class="s-price">¥19,800</span>
+    </div>
+    <a href="https://sevenplus.jp/collections/featured-collection/products/luna-single" class="s-btn">今すぐ購入 →</a>
+  </div>
 
   <script>
     // Appear on scroll
@@ -1368,6 +1452,12 @@
       });
     }, { threshold: 0.3 });
     document.querySelectorAll('.chart-wrapper, .exposure-card').forEach(el => barObs.observe(el));
+
+    // Sticky CTA
+    const stickyCta = document.getElementById('sticky-cta');
+    window.addEventListener('scroll', () => {
+      stickyCta.classList.toggle('visible', window.scrollY > 300);
+    }, { passive: true });
   </script>
 </body>
 </html>
