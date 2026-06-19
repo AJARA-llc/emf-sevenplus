@@ -1000,6 +1000,42 @@
       .sticky-cta .s-name { display: block; font-family: 'Noto Serif JP', serif; font-size: 12px; letter-spacing: 0.2em; color: #aaa; }
       .sticky-cta .s-price { font-size: 18px; }
       .sticky-cta .s-btn { padding: 12px 32px; font-size: 10px; }
+
+    }
+
+    /* ── Hero 商品画像オーバーレイ (キャッチコピー) ── */
+    .hero-fv-product .product-img-wrap { position: relative; }
+
+    /* モバイルのみ: 商品画像を先頭に */
+    @media (max-width: 768px) {
+      .hero-fv-product { order: -1; }
+    }
+    .hero-img-catch {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 40px 20px 20px;
+      background: linear-gradient(transparent, rgba(10,10,10,0.78));
+      pointer-events: none;
+    }
+    .hero-img-catch .hic-label {
+      font-size: 9px;
+      letter-spacing: 0.35em;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 8px;
+    }
+    .hero-img-catch .hic-main {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.75;
+      letter-spacing: 0.05em;
+    }
+    .hero-img-catch .hic-main em {
+      font-style: normal;
+      color: #E8A0A0;
     }
   </style>
 </head>
@@ -1039,6 +1075,10 @@
     <div class="hero-fv-product">
       <div class="product-img-wrap">
         <img src="assets/luna-single.jpg" alt="Luna Single — SEVENPLUS 電磁波対策ジュエリー">
+        <div class="hero-img-catch">
+          <p class="hic-label">— SEVENPLUS EMC テクノロジー</p>
+          <p class="hic-main">見えない守りを、身に纏う。<br><em>日米特許取得のEMC技術。</em></p>
+        </div>
       </div>
       <div class="product-detail">
         <p class="label">— 人気 No.1 商品</p>
