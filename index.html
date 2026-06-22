@@ -276,6 +276,92 @@
     }
     .hero-fv-product .product-detail .cta-btn:hover { background: var(--ink); }
 
+    /* ── Necklace hero FV ── */
+    .necklace-img {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      background: #0a0a0a;
+    }
+    .necklace-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .necklace-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.52) 100%);
+    }
+    .necklace-catch {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 1;
+      width: 90%;
+    }
+    .necklace-catch p {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(26px, 6.5vw, 52px);
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 0.1em;
+      line-height: 1.7;
+    }
+    @media (min-width: 768px) {
+      .necklace-img { aspect-ratio: auto; height: 480px; }
+    }
+    .necklace-product {
+      position: absolute;
+      bottom: 24px;
+      right: 20px;
+      z-index: 2;
+      text-align: right;
+    }
+    .necklace-product .np-label {
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 4px;
+    }
+    .necklace-product .np-name {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px;
+      font-weight: 300;
+      color: #fff;
+      letter-spacing: 0.1em;
+      margin-bottom: 2px;
+    }
+    .necklace-product .np-price {
+      font-size: 10px;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+    .necklace-product .np-cta {
+      display: inline-block;
+      padding: 8px 20px;
+      border: 1px solid rgba(255,255,255,0.6);
+      color: #fff;
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .necklace-product .np-cta:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: #fff;
+    }
+    .hero-editorial {
+      border-bottom: 1px solid var(--rule);
+    }
+
     /* ── Section label ── */
     .section-label {
       display: flex;
@@ -344,8 +430,8 @@
       border-top: 1px solid var(--rule);
       padding-top: 12px;
       display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
+      flex-direction: column;
+      gap: 6px;
     }
     .report-sidebar {
       padding: 24px 16px;
@@ -994,7 +1080,8 @@
       .section-label { padding: 12px 48px; }
 
       /* Hero FV */
-      .hero-fv { grid-template-columns: 3fr 2fr; }
+      .hero-fv { grid-template-columns: 1fr; }
+      .hero-editorial { display: grid; grid-template-columns: 3fr 2fr; }
       .hero-fv-copy { padding: 56px 48px; border-bottom: none; border-right: 1px solid var(--rule); }
       .hero-fv-copy .main-catch { font-size: clamp(28px, 3.5vw, 44px); }
       .hero-fv-copy .data-hook .num { font-size: 56px; }
@@ -1128,12 +1215,11 @@
     </div>
   </header>
 
-  <!-- Hero ファーストビュー: キャッチ + 商品 -->
-  <section class="hero-fv appear">
+  <section class="hero-editorial appear">
     <div class="hero-fv-copy">
       <p class="kicker">緊急特集 — 電磁波と現代生活</p>
       <h1 class="main-catch">
-        現代人は眠っている間も、<em>電磁波の海</em>の中にいる。見えないリスクへの対策は、今日から始められる。
+        現代人は眠っている間も、<br><em>電磁波の海</em>の中にいる。<br>見えないリスクへの対策は、<br>今日から始められる。
       </h1>
       <p class="sub-catch">
         スマートフォン・ノートPC・Wi-Fiルーター・5G基地局——現代の生活インフラが放つ電磁波は、私たちの日常に深く浸透している。その対策を、ジュエリーとして身に纏う選択肢がある。
@@ -1145,11 +1231,7 @@
     </div>
     <div class="hero-fv-product">
       <div class="product-img-wrap">
-        <img src="assets/luna-single.jpg" alt="Luna Single — SEVENPLUS 電磁波対策ジュエリー" fetchpriority="high" decoding="async">
-        <div class="hero-img-catch">
-          <p class="hic-label">— SEVENPLUS EMC テクノロジー</p>
-          <p class="hic-main">見えない守りを、身に纏う。</p>
-        </div>
+        <img src="assets/luna-single.jpg" alt="Luna Single — SEVENPLUS 電磁波対策ジュエリー" loading="lazy" decoding="async">
       </div>
       <div class="product-detail">
         <p class="label">— 人気 No.1 商品</p>
@@ -1441,7 +1523,7 @@
         </div>
         <div class="mini-trust-item">
           <p class="t-val">日米</p>
-          <p class="t-label">特許取得済み</p>
+          <p class="t-label">特許取得済みの素材を使用</p>
         </div>
         <div class="mini-trust-item">
           <p class="t-val">809</p>
@@ -1476,7 +1558,7 @@
   <!-- Final CTA -->
   <section class="final-cta appear">
     <div class="final-cta-text">
-      <h2>データが示す現実に、今日から対策を。</h2>
+      <h2>愛するあなたのお守りに</h2>
       <p style="margin-top:10px">大切なご家族とともに、見えない守りを。</p>
     </div>
     <div class="final-cta-action">
