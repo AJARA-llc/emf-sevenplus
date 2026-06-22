@@ -1523,10 +1523,12 @@
     }, { threshold: 0.3 });
     document.querySelectorAll('.chart-wrapper, .exposure-card').forEach(el => barObs.observe(el));
 
-    // Sticky CTA
+    // Sticky CTA — show after 300px, hide when footer enters viewport
     const stickyCta = document.getElementById('sticky-cta');
+    const siteFooter = document.querySelector('footer');
     window.addEventListener('scroll', () => {
-      stickyCta.classList.toggle('visible', window.scrollY > 300);
+      const footerTop = siteFooter.getBoundingClientRect().top;
+      stickyCta.classList.toggle('visible', window.scrollY > 300 && footerTop > window.innerHeight);
     }, { passive: true });
   </script>
 </body>
