@@ -1523,6 +1523,13 @@
     }, { threshold: 0.3 });
     document.querySelectorAll('.chart-wrapper, .exposure-card').forEach(el => barObs.observe(el));
 
+    // Break line after Japanese period 。
+    document.querySelectorAll('p, li').forEach(el => {
+      if (el.innerHTML.includes('。')) {
+        el.innerHTML = el.innerHTML.replace(/。(?=[^\s<])/g, '。<br>');
+      }
+    });
+
     // Sticky CTA — show after 300px, hide when footer enters viewport
     const stickyCta = document.getElementById('sticky-cta');
     const siteFooter = document.querySelector('footer');
