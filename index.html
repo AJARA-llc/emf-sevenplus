@@ -169,7 +169,6 @@
     }
     .hero-fv-copy {
       padding: 32px 16px;
-      border-bottom: 1px solid var(--rule);
     }
     .hero-fv-copy .kicker {
       font-size: 10px;
@@ -232,6 +231,7 @@
       display: flex;
       flex-direction: column;
       gap: 20px;
+      border-bottom: 1px solid var(--rule);
     }
     .hero-fv-product .product-img-wrap {
       width: 100%;
@@ -1082,10 +1082,10 @@
       /* Hero FV */
       .hero-fv { grid-template-columns: 1fr; }
       .hero-editorial { display: grid; grid-template-columns: 3fr 2fr; }
-      .hero-fv-copy { padding: 56px 48px; border-bottom: none; border-right: 1px solid var(--rule); }
+      .hero-fv-copy { order: -1; padding: 56px 48px; border-bottom: none; border-right: 1px solid var(--rule); }
       .hero-fv-copy .main-catch { font-size: clamp(28px, 3.5vw, 44px); }
       .hero-fv-copy .data-hook .num { font-size: 56px; }
-      .hero-fv-product { padding: 48px 32px; justify-content: space-between; }
+      .hero-fv-product { order: 1; padding: 48px 32px; justify-content: space-between; border-bottom: none; border-right: none; }
       .hero-fv-product .product-img-wrap { aspect-ratio: 3/4; }
 
       /* Callout bar */
@@ -1216,6 +1216,17 @@
   </header>
 
   <section class="hero-editorial appear">
+    <div class="hero-fv-product">
+      <div class="product-img-wrap">
+        <img src="assets/luna-single.jpg" alt="Luna Single — SEVENPLUS 電磁波対策ジュエリー" loading="lazy" decoding="async">
+      </div>
+      <div class="product-detail">
+        <p class="label">— 人気 No.1 商品</p>
+        <p class="name">Luna Single（ルナ・シングル）</p>
+        <p class="price">¥19,800（税込）Silver / Gold / Pink Gold / Black</p>
+        <a href="https://sevenplus.jp/collections/featured-collection/products/luna-single" class="cta-btn">今すぐ購入 →</a>
+      </div>
+    </div>
     <div class="hero-fv-copy">
       <p class="kicker">緊急特集 — 電磁波と現代生活</p>
       <h1 class="main-catch">
@@ -1227,17 +1238,6 @@
       <div class="data-hook">
         <span class="num">2,920<span style="font-size:16px;font-weight:300;color:var(--gray)">時間</span></span>
         <span class="desc">日本人が年間さらされる推定電磁波曝露時間</span>
-      </div>
-    </div>
-    <div class="hero-fv-product">
-      <div class="product-img-wrap">
-        <img src="assets/luna-single.jpg" alt="Luna Single — SEVENPLUS 電磁波対策ジュエリー" loading="lazy" decoding="async">
-      </div>
-      <div class="product-detail">
-        <p class="label">— 人気 No.1 商品</p>
-        <p class="name">Luna Single（ルナ・シングル）</p>
-        <p class="price">¥19,800（税込）Silver / Gold / Pink Gold / Black</p>
-        <a href="https://sevenplus.jp/collections/featured-collection/products/luna-single" class="cta-btn">今すぐ購入 →</a>
       </div>
     </div>
   </section>
