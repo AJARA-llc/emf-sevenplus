@@ -145,13 +145,15 @@
       gap: 8px;
       align-items: center;
     }
-    .masthead-main .pub-name {
-      font-family: 'Noto Serif JP', serif;
-      font-size: 22px;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      border-right: none;
-      padding-right: 0;
+    .masthead-main .pub-logo {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    .masthead-main .pub-logo img {
+      height: 34px;
+      width: auto;
+      display: block;
     }
     .masthead-main .issue-info {
       display: none;
@@ -1073,7 +1075,8 @@
       .masthead { padding: 0 48px; }
       .masthead-top { display: flex; }
       .masthead-main { grid-template-columns: auto 1fr; gap: 32px; padding: 20px 0 16px; }
-      .masthead-main .pub-name { font-size: 28px; border-right: 1px solid var(--rule); padding-right: 32px; }
+      .masthead-main .pub-logo { border-right: 1px solid var(--rule); padding-right: 32px; }
+      .masthead-main .pub-logo img { height: 44px; }
       .masthead-main .issue-info { display: block; }
 
       /* Section label */
@@ -1207,7 +1210,7 @@
       <span>SEVENPLUS SPECIAL REPORT</span>
     </div>
     <div class="masthead-main">
-      <div class="pub-name">SEVENPLUS</div>
+      <a href="https://sevenplus.jp" class="pub-logo"><img src="assets/sevenplus-logo.png" alt="SEVENPLUS"></a>
       <div class="issue-info">
         電磁波曝露レポート 2026<br>
         日本人の電磁波曝露実態と、EMC技術による対策
@@ -1558,7 +1561,7 @@
   <!-- Final CTA -->
   <section class="final-cta appear">
     <div class="final-cta-text">
-      <h2>愛するあなたのお守りに</h2>
+      <h2><span style="color:var(--red)">愛</span>するあなたのお守りに</h2>
       <p style="margin-top:10px">大切なご家族とともに、見えない守りを。</p>
     </div>
     <div class="final-cta-action">
